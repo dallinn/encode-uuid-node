@@ -1,0 +1,33 @@
+{
+  "name": "encode-uuid",
+  "version": "1.0.0",
+  "description": "A utility to encode text strings into UUID format and decode UUIDs back to text",
+  "main": "dist/encodeUUID.js",
+  "types": "dist/encodeUUID.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha -r ts-node/register src/**/*.test.ts",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "uuid",
+    "encode",
+    "decode",
+    "text",
+    "string"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.19",
+    "chai": "^4.3.10",
+    "mocha": "^10.8.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
