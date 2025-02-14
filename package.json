@@ -2,8 +2,8 @@
   "name": "encode-uuid",
   "version": "1.0.0",
   "description": "A utility to encode text strings into UUID format and decode UUIDs back to text",
-  "main": "dist/encodeUUID.js",
-  "types": "dist/encodeUUID.d.ts",
+  "main": "dist/uuidEncoder.js",
+  "types": "dist/uuidEncoder.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "mocha -r ts-node/register src/**/*.test.ts",

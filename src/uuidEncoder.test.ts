@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { textToUUID, UUIDtoText } from './encodeUUID';
+import { uuidEncoder } from './uuidEncoder';
 
-describe('encodeTextToUUID', function () {
+describe('uuidEncoder', function () {
   const passingTexts = [
     'testtextvalue',
     'short',
@@ -28,13 +28,13 @@ describe('encodeTextToUUID', function () {
   ];
 
   passingTexts.forEach((testText) => {
-    console.debug(`Testing passing text: ${testText}`);
     it(`should correctly encode and decode the text "${testText}"`, function () {
       try {
-        const uuid = textToUUID(testText);
-        const decodedText = UUIDtoText(uuid);
-        console.debug(`UUID generated for "${testText}": ${uuid}`);
-        console.debug(`Decoded text from UUID "${uuid}": ${decodedText}`);
+        console.debug(`Test text:\t ${testText}\t (should pass)`);
+        const uuid = uuidEncoder.encode(testText);
+        const decodedText = uuidEncoder.decode(uuid);
+        console.debug(`Encoded UUID:\t ${uuid}`);
+        console.debug(`Decoded text:\t ${decodedText}`);
 
         expect(decodedText).to.equal(testText, `Text "${testText}" did not match after encoding and decoding`);
 
@@ -46,13 +46,13 @@ describe('encodeTextToUUID', function () {
   });
 
   failingTexts.forEach((testText) => {
-    console.debug(`Testing failing text: ${testText} (expected to fail)`);
     it(`should fail to correctly decode the text "${testText}"`, function () {
       try {
-        const uuid = textToUUID(testText);
-        const decodedText = UUIDtoText(uuid);
-        console.debug(`UUID generated for "${testText}": ${uuid}`);
-        console.debug(`Decoded text from UUID "${uuid}": ${decodedText}`);
+        console.debug(`Test text:\t ${testText}\t (should fail)`);
+        const uuid = uuidEncoder.encode(testText);
+        const decodedText = uuidEncoder.decode(uuid);
+        console.debug(`Encoded UUID:\t ${uuid}`);
+        console.debug(`Decoded text:\t ${decodedText}`);
 
         expect(decodedText).to.not.equal(testText, `Expected text "${testText}" to fail but it passed`);
       } catch (error) {

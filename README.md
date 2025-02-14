@@ -18,29 +18,29 @@ npm install encode-uuid
 ## Usage
 
 ```typescript
-import { textToUUID, UUIDtoText } from 'encode-uuid';
+import { uuidEncoder } from 'encode-uuid';
 
 // Encode a string to UUID
-const uuid = textToUUID('testtextvalue');
+const uuid = uuidEncoder.encode('testtextvalue');
 console.log(uuid); // Outputs a valid UUID
 
 // Decode a UUID back to string
-const originalText = UUIDtoText(uuid);
+const originalText = uuidEncoder.decode(uuid);
 console.log(originalText); // Outputs: 'testtextvalue'
 ```
 
 ## API
 
-### `textToUUID(text: string): string`
+### `uuidEncoder.encode(text: string): string`
 
-Converts a text string into a UUID format.
+Encodes a text string into a UUID format.
 
 - `text`: The text string to encode (max 21 characters)
 - Returns: A valid UUID string
 
-### `UUIDtoText(uuid: string): string`
+### `uuidEncoder.decode(uuid: string): string`
 
-Converts a UUID back to its original text string.
+Decodes a UUID back to its original text string.
 
 - `uuid`: A valid UUID string
 - Returns: The original text string
